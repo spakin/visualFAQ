@@ -1,48 +1,43 @@
-                         ___ _____ ___  ___ _
-                        / __|_   _/ _ \| _ \ |
-                        \__ \ | || (_) |  _/_|
-                        |___/ |_| \___/|_| (_)
+                +-----------------------------------+
+                |        The Visual LaTeX FAQ       |
+                |                                   |
+                | Scott Pakin, scott+vfaq@pakin.org |
+                +-----------------------------------+
 
 
-There is nothing in this directory that is of use to the average LaTeX
-user.
+Description
+===========
 
-    If you want to associate     ---\  download the cooltooltips
-    pop-up windows and tooltips  ---/  package from CTAN.
-    with hyperlinks
+Having trouble finding the answer to a LaTeX question?  The Visual
+LaTeX FAQ is an innovative new search interface that presents over a
+hundred typeset samples of frequently requested document formatting.
+Simply click on a hyperlinked piece of text and the Visual LaTeX FAQ
+will send your Web browser to the appropriate page in the UK TeX FAQ.
 
-    If you want to see a code    ---\  read the documentation for
-    example for a particular     ---/  whatever package the FAQ
-    FAQ answer                         answer recommends.
 
-    If you want to rebuild       ---\  don't bother; the content has
-    the Visual LaTeX FAQ for     ---/  been laid out manually and the
-    whatever reason                    PDF file has been postprocessed
+Caveat
+======
 
-The source to the Visual LaTeX FAQ necessarily has to utilize a number
-of crude hacks and is more often than not a demonstration of how *not*
-to achieve a particular effect.  First, a lot of trickery is involved
-in wrapping hyperlinks around typesetting examples: If you can't put
-something in an \fbox and have it look right then you can't easily put
-a hyperlink around it, either.  Second, some packages exhibit
-contradictory functionality.  For example, parskip.sty sets the
-paragraph indent to zero for all paragraphs while indentfirst.sty sets
-the paragraph indent to a nonzero value for all paragraphs.  Clearly,
-a LaTeX file can't meaningfully load both packages.
+The Visual LaTeX FAQ makes extensive use of PDF hyperlinks to Web
+pages.  Unfortunately, not every PDF viewer supports this type of
+hyperlink and even those viewers that do may need to be configured to
+launch a Web browser.  The troubleshoot-vlf.pdf document is intended
+to help troubleshoot problems with hyperlinks in the Visual LaTeX FAQ.
+Follow the instructions in that document to help determine why
+hyperlinks aren't working on your system.
 
-The good news is that the UK TeX FAQ, to which all of the Visual LaTeX
-FAQ's hyperlinks point, is likely to include an increasing number of
-code examples (cf. http://tinyurl.com/fj4gz).
 
-The visualFAQ.pdf file on CTAN has been postprocessed to include page
-thumbnails and to support "Fast Web View" (a.k.a. Linearized PDF).
-Rebuilding the PDF will lose that metadata.  Changes to the document,
-including formatting changes, are also not recommended.  Because of
-the extensive use of unbreakable TeX boxes the document is very
-sensitive to layout.  Any change is likely to cause ugly slabs of
-inter- and intraparagraph whitespace to appear throughout the
-document.
+Copyright and license
+=====================
 
-In short, you're best off using the Visual LaTeX FAQ as it was
-intended: Browse through the prebuilt visualFAQ.pdf file, click on
-hyperlinks of interest, and learn from what the UK TeX FAQ has to say.
+Copyright (C) 2015 by Scott Pakin, scott+vfaq@pakin.org
+
+This file may be distributed and/or modified under the conditions of
+the LaTeX Project Public License, either version 1.3c of this license
+or (at your option) any later version.  The latest version of this
+license is in:
+
+   http://www.latex-project.org/lppl.txt
+
+and version 1.3c or later is part of all distributions of LaTeX
+version 2008/05/04 or later.
