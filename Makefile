@@ -5,7 +5,7 @@
 
 SOURCES = anotherarticle.pdf book-montage.png fuzzytext.png labelgraph.pdf \
           lorem-ipsum-logo.png musixtex.png visfaq-html.png visualFAQ.ind \
-          visualFAQ.ind2 visualFAQ.out visualFAQ.tex watermark.pdf
+          visualFAQ.ind2 visualFAQ.tex watermark.pdf
 
 all: visualFAQ.pdf
 
@@ -29,7 +29,7 @@ visualFAQ.tar.gz: all README troubleshoot-vlf.pdf
 	$(RM) -r visualFAQ
 
 clean:
-	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log
+	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log visualFAQ.out
 	$(RM) -r visualFAQ
 	$(RM) troubleshoot-vlf.pdf
 	$(RM) troubleshoot-vlf.out troubleshoot-vlf.aux troubleshoot-vlf.log
