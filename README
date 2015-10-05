@@ -1,0 +1,48 @@
+                         ___ _____ ___  ___ _
+                        / __|_   _/ _ \| _ \ |
+                        \__ \ | || (_) |  _/_|
+                        |___/ |_| \___/|_| (_)
+
+
+There is nothing in this directory that is of use to the average LaTeX
+user.
+
+    If you want to associate     ---\  download the cooltooltips
+    pop-up windows and tooltips  ---/  package from CTAN.
+    with hyperlinks
+
+    If you want to see a code    ---\  read the documentation for
+    example for a particular     ---/  whatever package the FAQ
+    FAQ answer                         answer recommends.
+
+    If you want to rebuild       ---\  don't bother; the content has
+    the Visual LaTeX FAQ for     ---/  been laid out manually and the
+    whatever reason                    PDF file has been postprocessed
+
+The source to the Visual LaTeX FAQ necessarily has to utilize a number
+of crude hacks and is more often than not a demonstration of how *not*
+to achieve a particular effect.  First, a lot of trickery is involved
+in wrapping hyperlinks around typesetting examples: If you can't put
+something in an \fbox and have it look right then you can't easily put
+a hyperlink around it, either.  Second, some packages exhibit
+contradictory functionality.  For example, parskip.sty sets the
+paragraph indent to zero for all paragraphs while indentfirst.sty sets
+the paragraph indent to a nonzero value for all paragraphs.  Clearly,
+a LaTeX file can't meaningfully load both packages.
+
+The good news is that the UK TeX FAQ, to which all of the Visual LaTeX
+FAQ's hyperlinks point, is likely to include an increasing number of
+code examples (cf. http://tinyurl.com/fj4gz).
+
+The visualFAQ.pdf file on CTAN has been postprocessed to include page
+thumbnails and to support "Fast Web View" (a.k.a. Linearized PDF).
+Rebuilding the PDF will lose that metadata.  Changes to the document,
+including formatting changes, are also not recommended.  Because of
+the extensive use of unbreakable TeX boxes the document is very
+sensitive to layout.  Any change is likely to cause ugly slabs of
+inter- and intraparagraph whitespace to appear throughout the
+document.
+
+In short, you're best off using the Visual LaTeX FAQ as it was
+intended: Browse through the prebuilt visualFAQ.pdf file, click on
+hyperlinks of interest, and learn from what the UK TeX FAQ has to say.

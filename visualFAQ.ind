@@ -1,0 +1,71 @@
+\section*{\indexname}
+\begin{multicols}{2}
+\makeatletter
+\scan@allowedfalse
+\parindent\z@
+\parskip\z@ \@plus .3\p@\relax
+\let\item\@idxitem
+{\bfseries\hfil A\hfil}\nopagebreak
+
+  \item adhuc\pfill 1, 2, 16
+  \item appareat, luptatum\pfill 2, 13, 17
+  \item appetere\pfill \textit{see}~saepe
+    \subitem tincidunt\pfill 10, 11
+    \subitem perpetua\pfill 5, 6
+
+  \indexspace
+{\bfseries\hfil D\hfil}\nopagebreak
+
+  \item denique\pfill 4--10, 20
+  \item dicam, labitur\pfill 7--17, 18
+  \item doctus, falli\pfill 14--16
+
+  \indexspace
+{\bfseries\hfil F\hfil}\nopagebreak
+
+  \item facilisis\pfill 13
+  \item falli\pfill 3, 15, 17
+
+  \indexspace
+{\bfseries\hfil I\hfil}\nopagebreak
+
+  \item ignota\pfill 4
+  \item indoctum\pfill 7
+  \item interesset\pfill 13, 16, 20
+  \item ipsum\pfill 17, 19, 20
+
+  \indexspace
+{\bfseries\hfil L\hfil}\nopagebreak
+
+  \item labitur, tale\pfill 1, 4, 5, 11
+  \item lorem\pfill 2, 9
+    \subitem ipsum\pfill 3
+  \item luptatum\pfill 2--8, 16, 17
+
+  \indexspace
+{\bfseries\hfil O\hfil}\nopagebreak
+
+  \item oratio\pfill 11
+
+  \indexspace
+{\bfseries\hfil P\hfil}\nopagebreak
+
+  \item perpetua\pfill 11--16, 18
+
+  \indexspace
+{\bfseries\hfil R\hfil}\nopagebreak
+
+  \item recusabo\pfill 7--12
+
+  \indexspace
+{\bfseries\hfil S\hfil}\nopagebreak
+
+  \item s\ae{}pe\pfill 5--11
+  \item senserit, recusabo\pfill 4--12
+
+  \indexspace
+{\bfseries\hfil T\hfil}\nopagebreak
+
+  \item tale\pfill 3, 15
+  \item tincidunt, saepe\pfill 4
+\end{multicols}

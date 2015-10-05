@@ -1,0 +1,58 @@
+\section*{Index~II}
+\begin{multicols}{2}
+\makeatletter
+\scan@allowedfalse
+\parindent\z@
+\parskip\z@ \@plus .3\p@\relax
+\let\item\@idxitem
+{\bfseries\hfil C\hfil}\nopagebreak
+
+  \item congue, fringilla\pfill 1, 8, 18
+  \item convallis, erat\pfill 11
+  \item cras, urna\pfill 5, 11, 15
+
+  \indexspace
+{\bfseries\hfil D\hfil}\nopagebreak
+
+  \item dictumst\pfill 3, 9
+  \item duis, cras\pfill 9
+
+  \indexspace
+{\bfseries\hfil I\hfil}\nopagebreak
+
+  \item iaculis\pfill 16
+  \item ipsum, fringilla\pfill 1, 14
+
+  \indexspace
+{\bfseries\hfil N\hfil}\nopagebreak
+
+  \item nisi\pfill 14, 20
+  \item nonummy, duis\pfill 3--7, 11
+  \item nulla, augue\pfill 17
+  \item nunc\pfill 2--14
+
+  \indexspace
+{\bfseries\hfil P\hfil}\nopagebreak
+
+  \item pellentesque, urna\pfill 10
+  \item pharetra\pfill \textit{see}~nisi
+  \item platea\pfill 8, 9, 18
+    \subitem cras\pfill 4
+  \item porta\pfill 17
+
+  \indexspace
+{\bfseries\hfil U\hfil}\nopagebreak
+
+  \item urna\pfill 2, 4
+    \subitem nonummy\pfill 16
+    \subitem sapien\pfill 20
+    \subitem convallis\pfill \textit{see}~erat
+
+  \indexspace
+{\bfseries\hfil V\hfil}\nopagebreak
+
+  \item velit, sapien\pfill 2--5, 19
+  \item venenatis\pfill 6--7, 18
+  \item vivamus\pfill 14
+  \item viverra, urna\pfill 4
+\end{multicols}
