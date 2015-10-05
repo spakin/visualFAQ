@@ -13,6 +13,15 @@ visualFAQ.pdf: $(SOURCES)
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
 
+anotherarticle.dvi: anotherarticle.tex
+	latex anotherarticle.tex
+
+anotherarticle.eps: anotherarticle.dvi
+	dvips -E -o anotherarticle.eps anotherarticle.dvi
+
+anotherarticle.pdf: anotherarticle.eps
+	ps2pdf -dEPSCrop anotherarticle.eps 
+
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -33,3 +42,5 @@ clean:
 	$(RM) -r visualFAQ
 	$(RM) troubleshoot-vlf.pdf
 	$(RM) troubleshoot-vlf.out troubleshoot-vlf.aux troubleshoot-vlf.log
+	$(RM) anotherarticle.aux anotherarticle.dvi anotherarticle.eps
+	$(RM) anotherarticle.log anotherarticle.pdf
