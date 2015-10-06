@@ -22,6 +22,13 @@ anotherarticle.eps: anotherarticle.dvi
 anotherarticle.pdf: anotherarticle.eps
 	ps2pdf -dEPSCrop anotherarticle.eps 
 
+watermark.eps: watermark.odg
+	libreoffice --headless --convert-to eps watermark.odg
+	perl -i -ne 'BEGIN {chomp($$bbox=`gs -q -sDEVICE=bbox -dNOPAUSE -dBATCH watermark.eps 2>&1`)} s/^\%\%BoundingBox.*/$$bbox/; print' watermark.eps
+
+watermark.pdf: watermark.eps
+	ps2pdf -dEPSCrop watermark.eps
+
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -38,9 +45,10 @@ visualFAQ.tar.gz: all README troubleshoot-vlf.pdf
 	$(RM) -r visualFAQ
 
 clean:
-	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log visualFAQ.out
 	$(RM) -r visualFAQ
+	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log visualFAQ.out
 	$(RM) troubleshoot-vlf.pdf
 	$(RM) troubleshoot-vlf.out troubleshoot-vlf.aux troubleshoot-vlf.log
 	$(RM) anotherarticle.aux anotherarticle.dvi anotherarticle.eps
 	$(RM) anotherarticle.log anotherarticle.pdf
+	$(RM) watermark.eps watermark.pdf
