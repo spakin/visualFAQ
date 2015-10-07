@@ -152,6 +152,11 @@
 % Provide a fake \cite command to help showcase label=backref.
 \newcommand{\fakecite}[1]{[\hypergetref{cite:backref}\label{#1}]}
 
+% Define a \nolinkfootnotemark as a non-hyperlinked \footnotemark.
+\makeatletter
+\let\nolinkfootnotemark=\H@@footnotemark
+\makeatother
+
 % FAQ: "Alternative head- and footlines in LaTeX"
 % FAQ: "Page numbering '<n> of <m>'"
 % FAQ: "How many pages are there in my document?"
@@ -625,9 +630,11 @@ intellegam.}  {\usefont{T1}{pnc}{m}{n} Ex nihil aperiri per.}
 \end{figure}
 
 % FAQ: "Footnotes in LaTeX section headings"
+\addtocounter{footnote}{1}
 \subsection[Mauris sagittis]{%
   Mauris sagittis%
-  \faq{ftnsect}{"Footnotes in LaTeX section headings"}{\footnotemark}
+  \faq{ftnsect}{"Footnotes in LaTeX section headings"}%
+               {\normalfont\textsuperscript{\footnotesize{\thefootnote}}}%
   \footnotetext{Nulla non augue sed sem accumsan lobortis.}}
 
 % FAQ: "Double-spaced documents in LaTeX"
@@ -1556,9 +1563,6 @@ dolore, qui vero, nulla suscipit qui.
 
 % FAQ: "Labelling graphics"
 % FAQ: "Footnotes in captions"
-\makeatletter
-\let\nolinkfootnotemark=\H@@footnotemark
-\makeatother
 \begin{figure}[tbp]
   \centering
   \begin{minipage}{5in}
