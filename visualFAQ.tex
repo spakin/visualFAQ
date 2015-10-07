@@ -1556,6 +1556,9 @@ dolore, qui vero, nulla suscipit qui.
 
 % FAQ: "Labelling graphics"
 % FAQ: "Footnotes in captions"
+\makeatletter
+\let\nolinkfootnotemark=\H@@footnotemark
+\makeatother
 \begin{figure}[tbp]
   \centering
   \begin{minipage}{5in}
@@ -1591,11 +1594,9 @@ dolore, qui vero, nulla suscipit qui.
     \end{picture}
     \caption[Duis iriure aliquam aliquam suscipit ex vel commodo]
             {Duis iriure aliquam aliquam suscipit ex vel commodo%
-             \faq{ftncapt}{"Footnotes in captions"}{\strut
-               \footnote{Pellentesque sagittis vestibulum aliquam habitant varius.}%
-             }%
-            }
+             \faq{ftncapt}{"Footnotes in captions"}{\strut\nolinkfootnotemark}}%
     \label{fig:labelfig}
+    \footnotetext[1]{Pellentesque sagittis vestibulum aliquam habitant varius.}%
   \end{minipage}
 \end{figure}
 
