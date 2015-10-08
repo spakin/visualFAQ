@@ -16,6 +16,16 @@ DIST_SOURCES = \
 	visualFAQ.tex \
 	watermark.pdf
 
+BOOKLIST = \
+	lamport.gif \
+	kopka-daly.jpg \
+	latex-companion.jpg \
+	texbook.gif \
+	graphics-companion.gif \
+	math-into-latex.jpg \
+	tex-unbound.gif \
+	digital-typography.gif
+
 %.pdf: %.eps
 	ps2pdf -dEPSCrop $<
 
@@ -37,6 +47,9 @@ watermark.eps: watermark.odg
 
 labelgraph.eps labelgraph.tex: labelgraph.gp
 	gnuplot labelgraph.gp -e 'set term epslatex col solid size 5,3 linewidth 2; set output "labelgraph.eps"; replot'
+
+book-montage.png: $(addprefix latex-books/,$(BOOKLIST))
+	montage -geometry 100x124+0+0 -tile 4x2 $(addprefix latex-books/,$(BOOKLIST)) book-montage.png
 
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
