@@ -49,7 +49,7 @@ labelgraph.eps labelgraph.tex: labelgraph.gp
 	gnuplot labelgraph.gp -e 'set term epslatex col solid size 5,3 linewidth 2; set output "labelgraph.eps"; replot'
 
 book-montage.png: $(addprefix latex-books/,$(BOOKLIST))
-	montage -geometry 191x250+0+0 -tile 4x2 $(addprefix latex-books/,$(BOOKLIST)) book-montage.png
+	montage -geometry 191x245+0+0 -tile 4x2 $(addprefix latex-books/,$(BOOKLIST)) book-montage.png
 
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -75,3 +75,4 @@ clean:
 	$(RM) anotherarticle.log anotherarticle.pdf
 	$(RM) watermark.eps watermark.pdf
 	$(RM) labelgraph.tex labelgraph.eps labelgraph.tex
+	$(RM) book-montage.png
