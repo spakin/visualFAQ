@@ -6,7 +6,7 @@
 DIST_SOURCES = \
 	anotherarticle.pdf \
 	book-montage.png \
-	fuzzytext.png \
+	fuzzytext.pdf \
 	labelgraph.pdf \
 	lorem-ipsum-logo.png \
 	musixtex.png \
@@ -51,6 +51,12 @@ labelgraph.eps labelgraph.tex: labelgraph.gp
 book-montage.png: $(addprefix latex-books/,$(BOOKLIST))
 	montage -geometry 191x245+0+0 -tile 4x2 $(addprefix latex-books/,$(BOOKLIST)) book-montage.png
 
+fuzzytext.dvi: fuzzytext.tex
+	latex fuzzytext.tex
+
+fuzzytext.eps: fuzzytext.dvi
+	dvips -E -P ibmvga -o fuzzytext.eps fuzzytext.dvi
+
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -76,3 +82,5 @@ clean:
 	$(RM) watermark.eps watermark.pdf
 	$(RM) labelgraph.tex labelgraph.eps labelgraph.tex
 	$(RM) book-montage.png
+	$(RM) fuzzytext.aux fuzzytext.dvi fuzzytext.log
+	$(RM) fuzzytext.eps fuzzytext.pdf
