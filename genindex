@@ -1,0 +1,83 @@
+#! /usr/bin/env perl
+
+# Generate a fake index file
+# By Scott Pakin <scott+vfaq@pakin.org>
+
+use warnings;
+use strict;
+
+my %index;      # Map from a letter to a list of words.
+
+# Define a function to output a randomly selected word.
+sub randomword ()
+{
+    my @letterlist = keys %index;
+    my @randwords = keys %{$index{$letterlist[int(rand @letterlist)]}};
+    return $randwords[int(rand @randwords)];
+}
+
+
+# Define a function to generate random page numbers.
+sub genpages ()
+{
+    if (int(rand 20) == 0) {
+	return "\\textit{see}~" . randomword();
+    }
+
+    my $maxpage = 20;      # Maximum page number
+    my $maxcites = 4;      # Maximum number of pages on which a word can occur
+    my %pageset;
+    foreach (0 .. int(rand $maxcites)) {
+	$pageset{1 + int(rand $maxpage)} = 1;
+    }
+    my @pagelist = sort {$a <=> $b} keys %pageset;
+    my $pagestr = join ", ", @pagelist;
+    $pagestr =~ s/, /--/ if int(rand 2) == 0;
+    return $pagestr;
+}
+
+
+# Read a list of words.
+while (<>) {
+    chomp;
+    foreach my $word (split " ", $_) {
+	$word =~ s/\W//g;
+	next if length($word) < 4;
+	$word = lc $word;
+	$index{substr $word, 0, 1}->{$word} = 1;
+    }
+}
+
+# Produce an index file.
+print <<'BEGININDEX';
+\section*{\indexname}
+\begin{multicols}{2}
+\makeatletter
+\scan@allowedfalse
+\parindent\z@
+\parskip\z@ \@plus .3\p@\relax
+\let\item\@idxitem
+BEGININDEX
+    ;
+my $needspace = 0;
+foreach my $letter (sort keys %index) {
+    print "\n  \\indexspace\n" if $needspace;
+    print "{\\bfseries\\hfil \U$letter\E\\hfil}\\nopagebreak\n\n";
+    foreach my $word (sort keys %{$index{$letter}}) {
+	$word =~ s/ae/\\ae{}/g;
+	my $outputtype = int rand 3;
+	if ($outputtype < 2) {
+	    printf "  \\item %s\\pfill %s\n", $word, genpages();
+	    if ($outputtype == 1) {
+		while (int(rand 2) == 0) {
+		    printf "    \\subitem %s\\pfill %s\n", randomword(), genpages;
+		}
+	    }
+	}
+	else {
+	    printf "  \\item %s, %s\\pfill %s\n", $word, randomword(), genpages();
+	}
+    }
+    $needspace = 1;
+}
+print "\\end{multicols}\n";
