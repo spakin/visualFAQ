@@ -8,7 +8,7 @@ DIST_SOURCES = \
 	book-montage.png \
 	fuzzytext.pdf \
 	labelgraph.pdf \
-	lorem-ipsum-logo.jpg \
+	lorem-ipsum.jpg \
 	musixtex.png \
 	visfaq-html.png \
 	visualFAQ.ind \
@@ -57,11 +57,11 @@ fuzzytext.dvi: fuzzytext.tex
 fuzzytext.eps: fuzzytext.dvi
 	dvips -E -P ibmvga -o fuzzytext.eps fuzzytext.dvi
 
-lorem-ipsum-logo.jpg: lorem-ipsum-logo-0001.png
-	convert -trim lorem-ipsum-logo-0001.png -quality '85%' lorem-ipsum-logo.jpg
+lorem-ipsum.jpg: lorem-ipsum-0001.png
+	convert -trim lorem-ipsum-0001.png -quality '85%' lorem-ipsum.jpg
 
-lorem-ipsum-logo-0001.png: lorem-ipsum-logo.blend
-	blender -b lorem-ipsum-logo.blend -o //lorem-ipsum-logo- -F PNG -x 1 -f 1
+lorem-ipsum-0001.png: lorem-ipsum.blend
+	blender -b lorem-ipsum.blend -o //lorem-ipsum- -F PNG -x 1 -f 1
 
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -90,4 +90,4 @@ clean:
 	$(RM) book-montage.png
 	$(RM) fuzzytext.aux fuzzytext.dvi fuzzytext.log
 	$(RM) fuzzytext.eps fuzzytext.pdf
-	$(RM) lorem-ipsum-logo-0001.png lorem-ipsum-logo.jpg
+	$(RM) lorem-ipsum-0001.png lorem-ipsum.jpg
