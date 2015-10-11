@@ -35,6 +35,7 @@ all: visualFAQ.pdf
 
 visualFAQ.pdf: $(DIST_SOURCES)
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
+	thumbpdf visualFAQ.pdf
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
 	qpdf --linearize visualFAQ.pdf visualFAQ.tmp
 	mv visualFAQ.tmp visualFAQ.pdf
@@ -90,8 +91,8 @@ visualFAQ.tar.gz: all README troubleshoot-vlf.pdf
 
 clean:
 	$(RM) -r visualFAQ
-	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log
-	$(RM) visualFAQ.out visualFAQ.tmp
+	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log visualFAQ.out
+	$(RM) visualFAQ.tmp visualFAQ.tpt
 	$(RM) troubleshoot-vlf.pdf
 	$(RM) troubleshoot-vlf.out troubleshoot-vlf.aux troubleshoot-vlf.log
 	$(RM) anotherarticle.aux anotherarticle.dvi anotherarticle.eps
