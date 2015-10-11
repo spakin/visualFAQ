@@ -8,6 +8,8 @@ DIST_SOURCES = \
 	book-montage.png \
 	fuzzytext.pdf \
 	labelgraph.pdf \
+	lorem-ipsum-left.jpg \
+	lorem-ipsum-right.jpg \
 	lorem-ipsum.jpg \
 	musixtex.png \
 	visfaq-html.png \
@@ -34,6 +36,8 @@ all: visualFAQ.pdf
 visualFAQ.pdf: $(DIST_SOURCES)
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
+	qpdf --linearize visualFAQ.pdf visualFAQ.tmp
+	mv visualFAQ.tmp visualFAQ.pdf
 
 anotherarticle.dvi: anotherarticle.tex
 	latex anotherarticle.tex
@@ -63,6 +67,12 @@ lorem-ipsum.jpg: lorem-ipsum-0001.png
 lorem-ipsum-0001.png: lorem-ipsum.blend
 	blender -b lorem-ipsum.blend -o //lorem-ipsum- -F PNG -x 1 -f 1
 
+lorem-ipsum-left.jpg: lorem-ipsum.jpg
+	convert -crop 1556x1799+0+0 lorem-ipsum.jpg lorem-ipsum-left.jpg
+
+lorem-ipsum-right.jpg: lorem-ipsum.jpg
+	convert -crop 1556x1799+1556+0 lorem-ipsum.jpg lorem-ipsum-right.jpg
+
 troubleshoot-vlf.pdf: troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
 	pdflatex troubleshoot-vlf.tex
@@ -80,7 +90,8 @@ visualFAQ.tar.gz: all README troubleshoot-vlf.pdf
 
 clean:
 	$(RM) -r visualFAQ
-	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log visualFAQ.out
+	$(RM) visualFAQ.pdf visualFAQ.aux visualFAQ.log
+	$(RM) visualFAQ.out visualFAQ.tmp
 	$(RM) troubleshoot-vlf.pdf
 	$(RM) troubleshoot-vlf.out troubleshoot-vlf.aux troubleshoot-vlf.log
 	$(RM) anotherarticle.aux anotherarticle.dvi anotherarticle.eps
@@ -91,3 +102,4 @@ clean:
 	$(RM) fuzzytext.aux fuzzytext.dvi fuzzytext.log
 	$(RM) fuzzytext.eps fuzzytext.pdf
 	$(RM) lorem-ipsum-0001.png lorem-ipsum.jpg
+	$(RM) lorem-ipsum-left.jpg lorem-ipsum-right.jpg

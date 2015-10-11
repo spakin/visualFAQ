@@ -54,6 +54,7 @@
 \usepackage{framed}
 \usepackage{cancel}
 \usepackage{amsthm}
+\usepackage{dpfloat}
 \usepackage[normalem]{ulem}
 \usepackage{cooltooltips}
 \usepackage[bookmarksopen,pdfpagemode=UseNone]{hyperref}
@@ -660,7 +661,6 @@ iaculis rutrum.\strut
 \end{minipage}%
 }
 
-
 \subsection{Lacus aliquam egestas}
 
 % FAQ: "Overstriking characters"
@@ -1018,6 +1018,27 @@ donec sapien erat sed ligula, non ut lacus porttitor.
 }
 \makeatother
 \pagestyle{fancybasic}
+
+% FAQ: "Facing floats on 2-page spread"
+\begin{figure}[p]
+  \begin{leftfullpage}
+    \rule{1in+\hoffset+\oddsidemargin}{0pt}%
+    \makebox[\linewidth-1in-\hoffset-\oddsidemargin][l]{%
+       \faq{dpfloat}{"Facing floats on 2-page spread"}{%
+         \includegraphics[width=\linewidth]{lorem-ipsum-left}%
+       }%
+    }%
+  \end{leftfullpage}
+\end{figure}
+\begin{figure}[p]
+  \begin{fullpage}
+   \makebox[\linewidth-1in-\hoffset-\oddsidemargin][r]{%
+     \faq{dpfloat}{"Facing floats on 2-page spread"}{%
+       \includegraphics[width=\linewidth]{lorem-ipsum-right}%
+     }%
+    }%
+  \end{fullpage}
+\end{figure}
 
 % FAQ: "LaTeX gets cross-references wrong"
 Deseruisse signiferumque duo ex. Ad eam temporibus comprehensam, ius
@@ -2394,7 +2415,7 @@ geometry.sty    2010/09/12 v5.6 Page Geometry
    ifpdf.sty    2011/01/30 v2.3 Provides the ifpdf switch (HO)
   ifvtex.sty    2010/03/01 v1.5 Detect VTeX and its facilities (HO)
  ifxetex.sty    2010/09/12 v0.6 Provides ifxetex conditional
-fancyhdr.sty    
+fancyhdr.sty
 lastpage.sty    2013/01/28 v1.2l Refers to last page's name (HMM; JPG)
 lettrine.sty    2014/09/16 v1.70 (Daniel Flipo)
 lettrine.cfg
@@ -2424,11 +2445,11 @@ setspace.sty    2011/12/19 v6.7a set line spacing
  amssymb.sty    2013/01/14 v3.01 AMS font symbols
 amsfonts.sty    2013/01/14 v3.01 Basic AMSFonts support
 mathrsfs.sty    1996/01/01 Math RSFS package v1.0 (jk)
-texnames.sty    
+texnames.sty
 bold-extra.sty    2001/11/13 v0.1 Use fonts from cm/mf-extra/bold
  eurosym.sty    1998/08/06 v1.1 European currency symbol ``Euro''
-slashbox.sty    
-multirow.sty    
+slashbox.sty
+multirow.sty
 afterpage.sty    2014/10/28 v1.08 After-Page Package (DPC)
  eso-pic.sty    2013/10/06 v2.0d eso-pic (RN)
 atbegshi.sty    2011/10/05 v1.16 At begin shipout hook (HO)
