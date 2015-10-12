@@ -105,12 +105,17 @@
 }{}
 \makeatother
 
+% Until the UK TeX FAQ restores support for links of the form
+% "label=A+B", truncate a URL at the first "+".
+\def\flhelper#1+#2!!!{#1}
+\newcommand{\firstlabel}[1]{\flhelper#1+!!!}
+
 % Define a shortcut for hyperlinks to the UK TeX FAQ.
 \newsavebox{\faqbox}
 \DeclareRobustCommand{\faq}[3]{%
   \begin{lrbox}{\faqbox}#3\end{lrbox}%
   \cooltooltip[0 1 0]{FAQ}{#2}%
-    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=#1}%
+    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=\firstlabel{#1}}%
     {http://www.tex.ac.uk/.../#1}%
     {\usebox{\faqbox}}%
 }
@@ -120,7 +125,7 @@
 \DeclareRobustCommand{\antifaq}[3]{%
   \begin{lrbox}{\faqbox}#3\end{lrbox}%
   \cooltooltip[1 0 0]{FAQ}{#2}%
-    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=#1}%
+    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=\firstlabel{#1}}%
     {http://www.tex.ac.uk/.../#1}%
     {\usebox{\faqbox}}%
 }
@@ -220,11 +225,10 @@
   \fancyhf{}
   \renewcommand{\headrulewidth}{0pt}
   \cfoot{%
-    \faq{ps@empty+nopageno}%
-      {"\verbbslash\verbbslash
-       pagestyle\verblbrace empty\verbrbrace\verbspace on first page in LaTeX"
-       and "How to get rid of page numbers"}%
-      {\qquad\strut}%
+    \faq{nopageno+ps@empty}%
+        {"How to get rid of page numbers" and
+          "\verbbslash\verbbslash pagestyle\verblbrace empty\verbrbrace\verbspace on first page in LaTeX"}%
+        {\qquad\strut}%
   }%
 }
 
@@ -888,14 +892,14 @@ velit nullam vestibulum.
 
 % FAQ: "Where can I find the symbol for ..."
 % FAQ: "Missing symbol commands"
-\newcommand*{\missssymb}[1]{%
-  \faq{symbols+missssymb}{\wheresym\verbspace and "Missing symbol commands"}{\strut$#1$}%
+\newcommand*{\misssymb}[1]{%
+  \faq{misssymb+symbols}{"Missing symbol commands" and \wheresym}{\strut$#1$}%
 }
 Decore gloriatur temporibus est ei, quo cu augue utroque
-\missssymb{\rhd} posidonium. Vocent oportere tincidunt
-\missssymb{\mho} nec ex.  Eu mei \missssymb{\Join} option docendi, mei
-cu modo solet philosophia, id sit \missssymb{\sqsubset} convenire
-assentior. Nec ridens animal an, ex \missssymb{\unlhd} accusata
+\misssymb{\rhd} posidonium. Vocent oportere tincidunt
+\misssymb{\mho} nec ex.  Eu mei \misssymb{\Join} option docendi, mei
+cu modo solet philosophia, id sit \misssymb{\sqsubset} convenire
+assentior. Nec ridens animal an, ex \misssymb{\unlhd} accusata
 per. Illum oporteat rationibus id pro, sed te primis \ae{}terno
 alterum. Pro in \ae{}que deseruisse, has ei nulla mucius
 signiferumque. No efficiendi voluptatibus per. Nobis audiam urbanitas
@@ -1576,18 +1580,18 @@ dolore, qui vero, nulla suscipit qui.
     \put(\LenToUnit{\pageminusmargin},10){\cropfaq{\usebox{\croplrc}}}}
 }
 
-% FAQ: "Books on TeX and its relations"
-% FAQ: "(La)TeX Tutorials, etc."
+% FAQ: "Books relevant to TeX and friends"
+% FAQ: "(La)TeX tutorials"
 % FAQ: "Online introductions: LaTeX"
 % FAQ: "Freely available (La)TeX books"
 \begin{figure}[tbp]
   \centering
-  \faq{books+man-latex+tutorials*+ol-books}%
-    {"Books on TeX and its relations",
-     "(La)TeX Tutorials, etc.",
-     "Online introductions: LaTeX", and
-     "Freely available (La)TeX books"}%
-    {\includegraphics[width=\linewidth]{book-montage}}
+  \faq{book-lists+tutbitslatex+man-latex+ol-books}
+      {"Books relevant to TeX and friends",
+       "(La)TeX tutorials",
+       "Online introductions: LaTeX", and
+       "Freely available (La)TeX books"}%
+      {\includegraphics[width=\linewidth]{book-montage}}
   \caption{Facilisi hendrerit}
   \label{fig:book-montage}
 \end{figure}
