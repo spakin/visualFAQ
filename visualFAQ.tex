@@ -58,7 +58,9 @@
 \usepackage{thumbpdf}
 \usepackage[normalem]{ulem}
 \usepackage{cooltooltips}
+\let\origcontentsline=\contentsline
 \usepackage[bookmarksopen,pdfpagemode=UseNone]{hyperref}
+\renewcommand{\contentsline}[4]{\origcontentsline{#1}{#2}{#3}}
 \usepackage{hyperxmp}
 
 % Specify the document's metadata.
@@ -444,6 +446,58 @@ Cotidieque~\faq{tradesyms+symbols}{"How to get copyright, trademark,
 etc." and \wheresym}{\textcopyright}~\the\year\ alia Utinam Aliquam
 ut vel no laudem eirmod virtute.
 \end{multicols}
+
+% FAQ: "How to change LaTeX's 'fixed names'"
+% FAQ: "Numbers too large in table of contents, etc."
+% FAQ: "The format of the Table of Contents, etc."
+\makeatletter
+\renewcommand*\l@subsection{\@dottedtocline{2}{1.5em}{17pt}}
+\def\afnumberline#1#2{%
+  \antifaq{tocloftwrong}{"Numbers too large in table of contents, etc."}
+          {\hb@xt@\@tempdima{#1\hfil}#2}%
+}
+\makeatother
+\section*{\faq{fixnam}{"How to change LaTeX's 'fixed names'"}{Curabitur}}
+\contentsline {section}{\numberline {1}Magna condimentum}{1}{section.1}
+\contentsline {section}{\numberline {2}Morbi tincidunt lacus}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Vehicula enim}{4}{subsection.2.1}
+\contentsline {section}{\numberline {3}Fusce dignissim}{4}{section.3}
+\contentsline {subsection}{\numberline {3.1}Vestibulum ante ipsum primis}{4}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}M\ae{}cenas purus eros}{4}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Tempus viverra ligula}{4}{subsection.3.3}
+\contentsline {subsection}{\numberline {3.4}Vivamus maximus ut tellus}{4}{subsection.3.4}
+\contentsline {subsection}{\numberline {3.5}Etiam nunc dui}{4}{subsection.3.5}
+\contentsline {subsection}{\numberline {3.6}Quisque orci magna}{4}{subsection.3.6}
+\contentsline {subsection}{\numberline {3.7}Pellentesque rutrum lorem}{4}{subsection.3.7}
+\contentsline {subsection}{\numberline {3.8}Cursus venenatis quam quis}{4}{subsection.3.8}
+\contentsline {subsection}{\numberline {3.9}Duis porta euismod consectetur}{4}{subsection.3.9}
+\contentsline {subsection}{\afnumberline {3.10}{Morbi sagittis placerat}}{4}{subsection.3.10}
+\contentsline {section}{\numberline {4}Donec purus}{5}{section.3}
+\contentsline {subsection}{\numberline {4.1}Mauris sagittis}{6}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Lacus aliquam egestas}{6}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}Inceptos lacinia tortor vit\ae {} pulvinar convallis}{7}{subsection.4.3}
+\contentsline {subsection}{\numberline {4.4}Nunc varius}{8}{subsection.4.4}
+\bigskip
+\noindent
+\faq{tocloft}{"The format of the Table of Contents, etc."}{%
+  \begin{minipage}[t]{\linewidth}
+    \usefont{T1}{cmbr}{m}{it}\Large
+    5\quad Philosophia ei mea\hfill 10
+  \end{minipage}
+}
+\contentsline {subsection}{\numberline {5.1}Ius nonumy ceteros similique}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.2}Dictas euripidis cum id}{11}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Assum minim}{14}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}Postea legendos}{14}{subsection.5.4}
+\contentsline {subsection}{\numberline {5.5}Mauris suscipit lectus}{14}{subsection.5.5}
+\contentsline {section}{\numberline {6}Nostrud sed augue}{19}{section.6}
+\contentsline {subsection}{\numberline {6.1}Velit in autem veniam}{19}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Te lorem blandit}{19}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Ornatus takimata}{21}{subsection.6.3}
+\contentsline {subsection}{\numberline {6.4}Has libris efficiendi omittantur}{22}{subsection.6.4}
+\contentsline {section}{\numberline {7}Consequat constituam mediocritatem}{22}{section.7}
+\clearpage
+
 
 \section{Morbi tincidunt lacus}
 
@@ -1034,27 +1088,6 @@ donec sapien erat sed ligula, non ut lacus porttitor.
 \makeatother
 \pagestyle{fancybasic}
 
-% FAQ: "Facing floats on 2-page spread"
-\begin{figure}[p]
-  \begin{leftfullpage}
-    \rule{1in+\hoffset+\oddsidemargin}{0pt}%
-    \makebox[\linewidth-1in-\hoffset-\oddsidemargin][l]{%
-       \faq{dpfloat}{"Facing floats on 2-page spread"}{%
-         \includegraphics[width=\linewidth]{lorem-ipsum-left}%
-       }%
-    }%
-  \end{leftfullpage}
-\end{figure}
-\begin{figure}[p]
-  \begin{fullpage}
-   \makebox[\linewidth-1in-\hoffset-\oddsidemargin][r]{%
-     \faq{dpfloat}{"Facing floats on 2-page spread"}{%
-       \includegraphics[width=\linewidth]{lorem-ipsum-right}%
-     }%
-    }%
-  \end{fullpage}
-\end{figure}
-
 % FAQ: "LaTeX gets cross-references wrong"
 Deseruisse signiferumque duo ex. Ad eam temporibus comprehensam, ius
 no laboramus assueverit Table~\antifaq{crossref}{"LaTeX gets
@@ -1170,6 +1203,27 @@ legere facete his ad.\strut
     {"Cancelling \verbbslash\verbbslash ragged commands"}%
     {\makebox[9em]{\rule[-\dp\raggedbox+1ex]{0em}{\raggedtotalheight}}}\hspace*{6em}}%
 }
+
+% FAQ: "Facing floats on 2-page spread"
+\begin{figure}[p]
+  \begin{leftfullpage}
+    \rule{1in+\hoffset+\oddsidemargin}{0pt}%
+    \makebox[\linewidth-1in-\hoffset-\oddsidemargin][l]{%
+       \faq{dpfloat}{"Facing floats on 2-page spread"}{%
+         \includegraphics[width=\linewidth]{lorem-ipsum-left}%
+       }%
+    }%
+  \end{leftfullpage}
+\end{figure}
+\begin{figure}[p]
+  \begin{fullpage}
+   \makebox[\linewidth-1in-\hoffset-\oddsidemargin][r]{%
+     \faq{dpfloat}{"Facing floats on 2-page spread"}{%
+       \includegraphics[width=\linewidth]{lorem-ipsum-right}%
+     }%
+    }%
+  \end{fullpage}
+\end{figure}
 
 
 \subsection{Dictas euripidis cum id}
