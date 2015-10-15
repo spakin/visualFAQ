@@ -1165,14 +1165,14 @@ Etiam sagittis, dolor at lacinia volutpat, arcu sapien tincidunt nisl,
 ut blandit dolor tortor non augue. Etiam varius interdum
 pede. Suspendisse potenti. Pellentesque pharetra, nibh sed porttitor
 hendrerit, quam lectus aliquet erat, quis adipiscing ligula odio et
-lorem. M\ae{}cenas pharetra feugiat nulla euismod consequat hymenaeos
-id phasellus. Integer pretium eros auctor augue. Class aptent taciti
-sociosqu ad litora torquent per conubia nostra, per inceptos
-hymen\ae{}os. Id eget eros eleifend suscipit vestibulum, ligula odio
-viverra porta tortor turpis ac. Augue viverra vel, omnis accumsan
-blandit nam orci vel dolor. Sollicitudin ut tincidunt imperdiet
-habitasse, erat gravida, curabitur ultrices, senectus elementum cras
-porta.\strut
+lorem. M\ae{}cenas pharetra feugiat nulla euismod consequat
+hymen\ae{}os id phasellus. Integer pretium eros auctor augue. Class
+aptent taciti sociosqu ad litora torquent per conubia nostra, per
+inceptos hymen\ae{}os. Id eget eros eleifend suscipit vestibulum,
+ligula odio viverra porta tortor turpis ac. Augue viverra vel, omnis
+accumsan blandit nam orci vel dolor. Sollicitudin ut tincidunt
+imperdiet habitasse, erat gravida, curabitur ultrices, senectus
+elementum cras porta.\strut
 \end{flushleft}
 \end{minipage}
 \end{lrbox}
@@ -1742,7 +1742,7 @@ volutpat ut egestas ultricies:
 % FAQ: "Including a file verbatim in LaTeX"
 \newsavebox{\verbfilebox}
 \begin{lrbox}{\verbfilebox}
-\begin{minipage}{\widthof{\texttt{sit discere detraxit, eam nulla omnium id.~~Homero grXaecXXiX}}}
+\begin{minipage}{\widthof{\texttt{sit discere detraxit, eam nulla omnium id.~~Homero grXaecXXiX~}}}
 \begin{Verbatim}[frame=single,label={\texttt{equidem.tex}}]
 \documentclass{article}
 
@@ -2263,11 +2263,49 @@ facer movet usu ne, facilis qualisque ne mei. Decore gr\ae{}cis
 verterem at qui. An ceteros voluptua consectetuer sed, te ius accumsan
 posidonium, pro ei quis principes.
 
-% FAQ: "Version control using RCS, CVS or Subversion"
+% FAQ: "Repeating a command n times"
+% FAQ: "Repeating something for each 'thing' in a set"
+\begingroup
+\setlength{\parfillskip}{0pt}%
+Fusce commodo leo eu tortor tempor mollis. Phasellus eros diam,
+pellentesque non congue non, porta lacinia ligula.  Nulla molestie sed
+tellus.  Mauris eu risus facilisis.  M\ae{}cenas
+\faq{repeat-num}{"Repeating a command n times"}{%
+  \begin{minipage}[t]{\linewidth}
+    \setlength{\parfillskip}{0pt}%
+    quis interdum risus.  M\ae{}cenas quis interdum risus.
+    M\ae{}cenas quis interdum risus.  M\ae{}cenas quis interdum risus.
+    M\ae{}cenas quis interdum risus.  M\ae{}cenas quis interdum risus.
+    M\ae{}cenas quis interdum risus.  M\ae{}cenas quis interdum risus.
+    M\ae{}cenas quis interdum risus.
+    Risus duis
+  \end{minipage}%
+}
+pellentesque fringilla non elit et vulputate.  Morbi eu justo
+consequat, tincidunt lorem eget, rutrum augue.  Donec et odio
+tincidunt.  Sed vulputate nunc a nulla vulputate, ac rutrum
+\faq{repeat-set}{"Repeating something for each 'thing' in a set"}{%
+  \begin{minipage}[t]{\linewidth}
+    \setlength{\parfillskip}{0pt}%
+    urna egestas.
+    Quisque ultrices augue \textit{molestie}.
+    Quisque ultrices augue \textit{laoreet}.
+    Quisque ultrices augue \textit{sapien}.
+    Quisque ultrices augue \textit{tristique}.
+    Quisque ultrices augue \textit{vestibulum}.
+    Quisque ultrices augue \textit{convallis}.
+    Quisque ultrices augue \textit{libero}.
+    Ut blandit eu nunc sit amet
+  \end{minipage}
+}
+\endgroup
+enim sem, interdum vit\ae{} magna sed.  Curabitur euismod faucibus.
+
+% FAQ: "Version control using RCS, CVS or the like"
 \begin{center}
 \faq{RCS}%
   {"Version control using RCS, CVS or Subversion"}%
-  {\texttt{\$Id:~visfaq.tex,v 1.00 2006/02/12 17:06:31 pakin Exp \$}}
+  {\texttt{\$Id:~visualFAQ.tex,v 1.01 2015/10/14 17:06:31 pakin Exp \$}}
 \end{center}
 
 \clearpage
