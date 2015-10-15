@@ -30,17 +30,13 @@ paragraph indent to zero for all paragraphs while indentfirst.sty sets
 the paragraph indent to a nonzero value for all paragraphs.  Clearly,
 a LaTeX file can't meaningfully load both packages.
 
-The good news is that the UK TeX FAQ, to which all of the Visual LaTeX
-FAQ's hyperlinks point, is likely to include an increasing number of
-code examples (cf. http://tinyurl.com/fj4gz).
-
 The visualFAQ.pdf file on CTAN has been postprocessed to include page
 thumbnails and to support "Fast Web View" (a.k.a. Linearized PDF).
 Rebuilding the PDF will lose that metadata.  Changes to the document,
 including formatting changes, are also not recommended.  Because of
 the extensive use of unbreakable TeX boxes the document is very
 sensitive to layout.  Any change is likely to cause ugly slabs of
-inter- and intraparagraph whitespace to appear throughout the
+inter- and intra-paragraph whitespace to appear throughout the
 document.
 
 In short, you're best off using the Visual LaTeX FAQ as it was
