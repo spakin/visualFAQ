@@ -16,7 +16,7 @@
 %%
 %% The best way to get answers to typesetting questions is to browse
 %% through the prebuilt visualFAQ.pdf file, click on hyperlinks of
-%% interest, and learn from what the UK TeX FAQ has to say.
+%% interest, and learn from what the TeX FAQ has to say.
 %%
 \documentclass[twoside,letterpaper]{article}
 \usepackage{etex}
@@ -107,18 +107,18 @@
 }{}
 \makeatother
 
-% Until the UK TeX FAQ restores support for links of the form
+% Until the TeX FAQ restores support for links of the form
 % "label=A+B", truncate a URL at the first "+".
 \def\flhelper#1+#2!!!{#1}
 \newcommand{\firstlabel}[1]{\flhelper#1+!!!}
 
-% Define a shortcut for hyperlinks to the UK TeX FAQ.
+% Define a shortcut for hyperlinks to the TeX FAQ.
 \newsavebox{\faqbox}
 \DeclareRobustCommand{\faq}[3]{%
   \begin{lrbox}{\faqbox}#3\end{lrbox}%
   \cooltooltip[0 1 0]{FAQ}{#2}%
-    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=\firstlabel{#1}}%
-    {http://www.tex.ac.uk/.../#1}%
+    {https://texfaq.org/FAQ-\firstlabel{#1}}%
+    {https://texfaq.org/FAQ-\firstlabel{#1}}%
     {\usebox{\faqbox}}%
 }
 
@@ -127,8 +127,8 @@
 \DeclareRobustCommand{\antifaq}[3]{%
   \begin{lrbox}{\faqbox}#3\end{lrbox}%
   \cooltooltip[1 0 0]{FAQ}{#2}%
-    {http://www.tex.ac.uk/cgi-bin/texfaq2html?label=\firstlabel{#1}}%
-    {http://www.tex.ac.uk/.../#1}%
+    {https://texfaq.org/FAQ-\firstlabel{#1}}%
+    {https://texfaq.org/FAQ-\firstlabel{#1}}%
     {\usebox{\faqbox}}%
 }
 
@@ -356,13 +356,13 @@
 \begin{minipage}{\linewidth}
 \begin{abstract}\strut
   This document provides an experimental new ``search'' interface to
-  UK \TeX\ FAQ (\nolinkurl{http://www.tex.ac.uk/faq}).  Rather than
-  require the user to formulate a query, it merely presents examples
-  of customized \LaTeX{} formatting---and formatting
-  problems---encased in live hyperlinks (green or red, as appropriate)
-  to appropriate pages in the FAQ\@.  The goal is to facilitate
-  finding answers to \LaTeX-related queries which are difficult to
-  formulate textually but easy to recognize visually.
+  \TeX\ FAQ (\nolinkurl{https://texfaq.org/}).  Rather than require
+  the user to formulate a query, it merely presents examples of
+  customized \LaTeX{} formatting---and formatting problems---encased
+  in live hyperlinks (green or red, as appropriate) to appropriate
+  pages in the FAQ\@.  The goal is to facilitate finding answers to
+  \LaTeX-related queries which are difficult to formulate textually
+  but easy to recognize visually.
 
   In short: If you want to learn how something in this document was
   formatted or why it came out misformatted, just click on it.\strut
