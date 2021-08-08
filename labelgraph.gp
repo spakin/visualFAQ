@@ -146,5 +146,5 @@ set fontpath
 set psdir
 set fit noerrorvariables noprescale
 GNUTERM = "x11"
-plot [-2*pi:2*pi] sin(x)/(x**2+pi) with lines linestyle 1
+plot [-2*pi:2*pi] sin(x)/(x**2+pi) with lines linecolor "blue" linewidth 2
 #    EOF
