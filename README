@@ -14,7 +14,7 @@ an innovative new search interface that presents over a hundred
 typeset samples of frequently requested document formatting.  Simply
 click on a hyperlinked piece of text that matches what you want to
 achieve -- or what you want to prevent -- and the Visual LaTeX FAQ
-will send your Web browser to the appropriate page in the UK TeX FAQ.
+will send your Web browser to the appropriate page in the TeX FAQ.
 
 
 Caveat
@@ -32,7 +32,7 @@ hyperlinks aren't working on your system.
 Copyright and license
 =====================
 
-Copyright (C) 2015 by Scott Pakin, scott+vfaq@pakin.org
+Copyright (C) 2015-2021 by Scott Pakin, scott+vfaq@pakin.org
 
 This file may be distributed and/or modified under the conditions of
 the LaTeX Project Public License, either version 1.3c of this license
