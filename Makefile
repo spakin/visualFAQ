@@ -31,7 +31,7 @@ BOOKLIST = \
 %.pdf: %.eps
 	ps2pdf -dEPSCrop $<
 
-all: visualFAQ.pdf
+all: visualFAQ.pdf troubleshoot-vlf.pdf
 
 visualFAQ.pdf: $(DIST_SOURCES)
 	pdflatex '\let\vlfpoweruser=1\input visualFAQ'
