@@ -63,7 +63,7 @@ fuzzytext.eps: fuzzytext.dvi
 	dvips -E -P ibmvga -o fuzzytext.eps fuzzytext.dvi
 
 lorem-ipsum.jpg: lorem-ipsum-0001.png
-	convert -trim lorem-ipsum-0001.png -quality '85%' lorem-ipsum.jpg
+	convert -background white -alpha remove -alpha off -trim lorem-ipsum-0001.png -quality '85%' lorem-ipsum.jpg
 
 lorem-ipsum-0001.png: lorem-ipsum.blend
 	blender -b lorem-ipsum.blend -o //lorem-ipsum- -F PNG -x 1 -f 1
